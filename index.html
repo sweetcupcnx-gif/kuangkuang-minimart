@@ -96,7 +96,7 @@
       { id:'H005', name:'น้ำยาล้างจาน', price:39, category:'ของใช้', image:'https://images.unsplash.com/photo-1583947215259-38e31be8751f?auto=format&fit=crop&w=600&q=80' }
     ];
     let activeCategory='ทั้งหมด'; const cart={};
-    function categories(){ return ['ทั้งหมด','เครื่องดื่ม','ของกิน','เบเกอรี่','ของแช่เย็น','ของใช้']; }
+    function categories(){ return ['ทั้งหมด','เครื่องดื่ม','ของกิน','ขนม','ของแช่เย็น','ของใช้','เครื่องดื่มแอลกอฮอล์','บุหรี่',]; }
     function renderTabs(){ document.getElementById('tabs').innerHTML=categories().map(cat=>`<button class="tab ${cat===activeCategory?'active':''}" onclick="setCategory('${cat}')">${cat}</button>`).join(''); }
     function setCategory(cat){ activeCategory=cat; renderTabs(); renderProducts(); }
     function filteredProducts(){ const keyword=document.getElementById('searchInput').value.trim().toLowerCase(); return products.filter(p=>{ const matchCategory=activeCategory==='ทั้งหมด'||p.category===activeCategory; const matchKeyword=!keyword||p.name.toLowerCase().includes(keyword)||p.category.toLowerCase().includes(keyword)||p.id.toLowerCase().includes(keyword); return matchCategory&&matchKeyword; }); }
